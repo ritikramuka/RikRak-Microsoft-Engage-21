@@ -6,16 +6,16 @@ function LoginScreen() {
     return (
         <Container ClassName='LoginScreen'>
             <Row>
-                <Col md={8} ClassName='LoginScreen__Image'>
+                <Col md={8} className='LoginScreen__Image'>
                     <Image src='https://cdn.pixabay.com/photo/2020/06/17/16/28/webinar-5310229_960_720.jpg' alt='product' fluid />
                 </Col>
-                <Col md={4} ClassName='LoginScreen__Form'>
+                <Col md={4} className='LoginScreen__Form'>
                     <Form>
-                        <div ClassName='LoginScreen__Form-Heading'>Welcome!</div>
-                        <div ClassName='LoginScreen__Form-SubHeading'>Sign in to your Account</div>
+                        <div className='LoginScreen__Form-Heading'>Welcome!</div>
+                        <div className='LoginScreen__Form-SubHeading'>Sign in to your Account</div>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" ClassName='LoginScreen__Form-input' />
+                            <Form.Control type="email" placeholder="Enter email" className='LoginScreen__Form-input' />
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
     </Form.Text>
