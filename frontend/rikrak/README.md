@@ -1,4 +1,3 @@
-
 # RikRak-Friends (Frontend)
 
 RikRak is a videotelephony proprietary software program developed by Ritik Ramuka.
