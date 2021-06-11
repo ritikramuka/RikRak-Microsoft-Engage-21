@@ -6,17 +6,7 @@ RikRak is a videotelephony proprietary software program developed by Ritik Ramuk
 **Client:** React, React-Bootstrap
 
 **Server:** Node, Express, Socket.io, WebRTC
-
-  
-## Installation 
-
-Install my-project with npm
-
-```bash 
-  npm install my-project
-  cd my-project
-```
-    
+   
 ## License
 
 MIT License
