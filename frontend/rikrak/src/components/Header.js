@@ -12,6 +12,7 @@ function Header() {
 
         if (currentLocation === '/') setNav('Home');
         else if (currentLocation === '/login') setNav('Login');
+        else if (currentLocation === '/signup') setNav('Signup');
     }, [nav]);
 
     return (
@@ -29,9 +30,9 @@ function Header() {
                             <Button variant='dark' className='mr-2' onClick={() => setNav('Login')}>LogIn</Button>
                         </Link>
                     ) : null}
-                    {nav !== 'Signin' ? (
-                        <Link to='/signin'>
-                            <Button variant='dark' className='mr-2' onClick={() => setNav('Signin')}>SignIn</Button>
+                    {nav !== 'Signup' ? (
+                        <Link to='/signup'>
+                            <Button variant='dark' className='mr-2' onClick={() => setNav('Signup')}>SignUp</Button>
                         </Link>
                     ) : null}
                 </Nav>
