@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row, Form, Button, Image } from 'react-bootstrap';
 import './style/LoginScreen.css';
+import './style/Screen.css';
 
 function LoginScreen() {
     return (
@@ -12,8 +13,8 @@ function LoginScreen() {
                     </Col>
                     <Col lg={4} className='LoginScreen__Form'>
                         <Form>
-                            <div className='LoginScreen__Form-Heading'>Welcome!</div>
-                            <div className='LoginScreen__Form-SubHeading'>Login to your Account</div>
+                            <div className='Form-Heading'>Welcome!</div>
+                            <div className='Form-SubHeading'>Login to your Account</div>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" className='LoginScreen__Form-input' />
