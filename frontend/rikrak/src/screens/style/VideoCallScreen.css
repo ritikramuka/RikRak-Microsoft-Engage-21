@@ -1,0 +1,49 @@
+.RoomContainer {
+  display: flex;
+  width: 100%;
+  max-height: 100vh;
+  flex-direction: row;
+}
+
+.VideoContainer {
+  max-width: 100%;
+  height: 92%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.VideoAndBarContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.VideoBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.VideoBox:hover > i {
+  display: block;
+}
+
+.UserName {
+  position: absolute;
+  font-size: calc(20px + 5vmin);
+  z-index: 1;
+}
+
+.MyVideo {
+  top: 0;
+  left: 0;
+  height: 400px;
+  width: 400px;
+}
