@@ -5,18 +5,22 @@ import SignupScreen from './screens/SignupScreen';
 import VideoCallScreen from "./screens/VideoCallScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ForgetPasswordScreen from './screens/ForgetPasswordScreen';
+import { AuthProvider } from "./Contexts/AuthContext";
+import PrivateRoutes from "./Routes/PrivateRoutes";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/" component={HomeScreen} exact />
-          <Route path='/login' component={LoginScreen} />
-          <Route path='/signup' component={SignupScreen} />
-          <Route path='/forget' component={ForgetPasswordScreen} />
-          <Route path="/room/:roomId" component={VideoCallScreen} exact />
-        </Switch>
+        <AuthProvider>
+          <Switch>
+            <PrivateRoutes path="/" component={HomeScreen} exact />
+            <Route path='/login' component={LoginScreen} />
+            <Route path='/signup' component={SignupScreen} />
+            <Route path='/forgot-password' component={ForgetPasswordScreen} />
+            <PrivateRoutes path="/room/:roomId" component={VideoCallScreen} exact />
+          </Switch>
+        </AuthProvider>
       </div>
     </Router>
   );

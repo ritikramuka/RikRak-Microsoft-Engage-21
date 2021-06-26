@@ -1,4 +1,4 @@
 # Goals and plans to implement
 
-- login and signup feature
+- implement some new features and update ui
  

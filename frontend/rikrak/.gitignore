@@ -1,5 +1,8 @@
 # dependencies
 /node_modules
 
+#firebase config
+secrets.js
+
 # caches
 .eslintcache
