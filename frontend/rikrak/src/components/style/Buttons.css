@@ -1,0 +1,53 @@
+.Button {
+  border-radius: 50px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+.Button:hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.primary {
+  background: #01bf71;
+}
+.primary:hover {
+  background: #fff;
+}
+
+.secondary {
+  background: #010606;
+}
+.secondary:hover {
+  background: #01bf71;
+}
+
+.dark {
+  color: #010606;
+}
+
+.light {
+  color: #fff;
+}
+
+.big {
+  padding: 14px 48px;
+}
+
+.small {
+  padding: 12px 30px;
+}
+
+.fontBig {
+  font-size: 20px;
+}
+
+.fontSmall {
+  font-size: 16px;
+}

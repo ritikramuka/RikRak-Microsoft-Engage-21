@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ForgetPasswordScreen from './screens/ForgetPasswordScreen';
 import { AuthProvider } from "./Contexts/AuthContext";
 import PrivateRoutes from "./Routes/PrivateRoutes";
+import MainScreen from "./screens/MainScreen";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/signup' component={SignupScreen} />
             <Route path='/forgot-password' component={ForgetPasswordScreen} />
             <PrivateRoutes path="/room/:roomId" component={VideoCallScreen} exact />
+            <Route path='/main' component={MainScreen} />
           </Switch>
         </AuthProvider>
       </div>
