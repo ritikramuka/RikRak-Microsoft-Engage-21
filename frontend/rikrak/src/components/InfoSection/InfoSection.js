@@ -2,6 +2,7 @@ import React from "react";
 import "../style/Buttons.css";
 import "../style/Info.css";
 import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 const InfoSection = ({
   id,
@@ -17,6 +18,10 @@ const InfoSection = ({
   primary,
   darkText,
 }) => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
       <div
@@ -30,22 +35,28 @@ const InfoSection = ({
                 <div className="TopLine">{topLine}</div>
                 <h1
                   className={`Heading ${lightText ? "lightText" : "darkText"}`}
-                  lightText={lightText}
                 >
                   {headline}
                 </h1>
                 <p
                   className={`Subtitle ${darkText ? "darkText" : "lightText"}`}
-                  darkText={darkText}
                 >
                   {description}
                 </p>
                 <div className="BtnWrap">
                   <Link
-                    className={`Button ${primary ? "primary dark" : "secondary light"
-                      } small fontSmall`}
-                    to="home"
-                    smooth={true}
+                    className={`Button ${
+                      primary ? "primary dark" : "secondary light"
+                    } small fontSmall`}
+                    to={() => {
+                      if (buttonLabel === "Get started") return "/login";
+                      else if (buttonLabel === "Learn more") return "/main";
+                      else return "/signup";
+                    }}
+                    onClick={() => {
+                      if (buttonLabel === "Learn more") return toggleHome();
+                    }}
+                    smooth="true"
                     duration={500}
                     spy={true}
                     exact="true"

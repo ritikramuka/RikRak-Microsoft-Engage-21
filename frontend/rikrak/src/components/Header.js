@@ -1,32 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Button, Dropdown, Nav, Navbar, Card } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
-import { PersonCircle } from "react-bootstrap-icons";
+import { ImUser as PersonCircle } from "react-icons/im";
 import "./style/Header.css";
+import { database } from "../Firebase/firebase";
+import profile_pic from "../Images/profile_pic.svg";
+import { animateScroll as scroll } from "react-scroll";
+import "./style/NavBar.css";
 
 function Header() {
-    // getting current location and setting nav elements w.r.t. to it
-    const [nav, setNav] = useState("Home");
+    const [scrollNav, setScrollNav] = useState(false);
     const [error, setError] = useState("");
+    const [firstName, setFirstName] = useState("Guest");
+    const [lastName, setLastName] = useState("");
+    const [profileImg, setProfileImg] = useState(profile_pic);
     const { logout, currUser } = useAuth();
     const history = useHistory();
-    
-    useEffect(() => {
-        const url = window.location.href;
-        const currentLocation = url.substr(url.lastIndexOf("/"));
 
-        if (currentLocation === "/") setNav("Home");
-        else if (currentLocation === "/login") setNav("Login");
-        else if (currentLocation === "/signup") setNav("Signup");
-        else if (currentLocation === "/forgot-password") setNav("ForgetPassword");
-    }, [nav]);
+    const changeNav = () => {
+        if (window.scrollY >= 80) {
+            setScrollNav(true);
+        } else {
+            setScrollNav(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", changeNav);
+    }, []);
+
+    const toggleHome = () => {
+        scroll.scrollToTop();
+    };
+
+    useEffect(() => {
+        const user = database.users.doc(currUser.uid).get();
+        user.then((doc) => {
+            // console.log(doc.data().profileUrl);
+            if (doc.data().firstName) setFirstName(doc.data().firstName);
+            if (doc.data().lastName) setLastName(doc.data().lastName);
+            if (
+                doc.data().profileUrl !==
+                "https://firebasestorage.googleapis.com/v0/b/rikrak-auth-dev.appspot.com/o/users%2Fu0BdamkPricQpXLgFJnB7cZSsUh1%2FProfileImage?alt=media&token=50fda9c4-2f87-4c5c-95bd-19e682d5c367"
+            )
+                setProfileImg(doc.data().profileUrl);
+        });
+        // eslint-disable-next-line
+    }, []);
 
     async function handleLogout(e) {
         try {
             setError("");
             await logout();
-            history.push("/login");
+            history.push("/main");
         } catch {
             setError("Failed to log out");
             console.log(error);
@@ -34,70 +60,72 @@ function Header() {
     }
 
     return (
-        <div>
-            <Navbar bg="primary" variant="dark">
-                <Navbar.Brand href="/">RikRak</Navbar.Brand>
-                <Nav className="ml-auto">
-                    {nav === "Home" ? (
-                        <Dropdown drop='left'>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                <PersonCircle></PersonCircle>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item>
-                                    <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src="https://images.unsplash.com/photo-1606228281437-dc226988dc3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
-                                        <Card.Body>
-                                            <Card.Title>{currUser && currUser.email}</Card.Title>
-                                            <Button
-                                                variant="primary"
-                                                onClick={() => { setNav("Login"); handleLogout(); }}
-                                            >
-                                                Logout
-                                            </Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    ) : null}
-                    {nav === "Login" ? (
-                        <Link to="/signup">
-                            <Button
-                                variant="dark"
-                                className="mr-2"
-                                onClick={() => setNav("Signup")}
+        <nav className={`Header ${scrollNav ? "HeaderBgDark" : "HeaderBgTrans"}`
+        }>
+            <div className="HeaderContainer">
+                <Link className="HeaderLogo" to="/main" onClick={toggleHome}>
+                    RikRak
+                </Link>
+                <button className="HeaderBtn">
+                    <PersonCircle className="profile" style={{ pointerEvents: "none" }}>
+                    </PersonCircle>
+                    <div className="dropdown-content">
+                        <div className="circle">
+                            <div className='imgBx'>
+                                <img src={profileImg} alt={profile_pic} className="profile_image" />
+                            </div>
+                        </div>
+                        <div className='content'>
+                            <h3 className='Name'>{firstName} {lastName}</h3>
+                            <h3>{currUser && currUser.email}</h3>
+                            <button className='Logout-btn'
+                                onClick={() => {
+                                    handleLogout();
+                                }}
                             >
-                                SignUp
-                            </Button>
-                        </Link>
-                    ) : null}
-                    {nav === "Signup" ? (
-                        <Link to="/login">
-                            <Button
-                                variant="dark"
-                                className="mr-2"
-                                onClick={() => setNav("Login")}
-                            >
-                                LogIn
-                            </Button>
-                        </Link>
-                    ) : null}
-                    {nav === "ForgetPassword" ? (
-                        <Link to="/login">
-                            <Button
-                                variant="dark"
-                                className="mr-2"
-                                onClick={() => setNav("Login")}
-                            >
-                                LogIn
-                            </Button>
-                        </Link>
-                    ) : null}
-                </Nav>
-            </Navbar>
-        </div>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </nav >
     );
 }
 
 export default Header;
+
+
+/*
+ <Navbar bg="primary" variant="dark">
+                <Navbar.Brand href="/">RikRak</Navbar.Brand>
+                <Nav className="ml-auto">
+                    <Dropdown drop="left">
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            <PersonCircle></PersonCircle>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item>
+                                <Card style={{ width: "18rem" }}>
+                                    <Card.Img variant="top" src={profileImg} />
+                                    <Card.Body>
+                                        <Card.Title>{currUser && currUser.email}</Card.Title>
+                                        <Card.Title>{firstName}</Card.Title>
+                                        <Card.Title>{lastName}</Card.Title>
+                                        <Button
+                                            variant="primary"
+                                            onClick={() => {
+                                                handleLogout();
+                                            }}
+                                        >
+                                            Logout
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
+                                <div className="Card"></div>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Nav>
+            </Navbar>
+*/

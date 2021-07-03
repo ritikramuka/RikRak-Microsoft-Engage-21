@@ -67,8 +67,6 @@ const VideoCallScreen = (props) => {
         return peersRef.current.find((p) => p.peerID === id);
     }
 
-
-
     useEffect(() => {
         // End Meeting Button Event
         window.addEventListener("popstate", goToBack);
@@ -175,7 +173,6 @@ const VideoCallScreen = (props) => {
         // eslint-disable-next-line
     }, []);
 
-
     // Participants Video
     function createParticipantVideo(peer, index, arr) {
         return (
@@ -224,7 +221,6 @@ const VideoCallScreen = (props) => {
         setUserVideoAudio((previousList) => {
             let videoSwitch = previousList["localUser"].video;
             let audioSwitch = previousList["localUser"].audio;
-
             if (target === "video") {
                 const userVideoTrack =
                     userVideoRef.current.srcObject.getVideoTracks()[0];
@@ -234,7 +230,6 @@ const VideoCallScreen = (props) => {
                 const userAudioTrack =
                     userVideoRef.current.srcObject.getAudioTracks()[0];
                 audioSwitch = !audioSwitch;
-
                 if (userAudioTrack) {
                     userAudioTrack.enabled = audioSwitch;
                 } else {
@@ -324,7 +319,9 @@ const VideoCallScreen = (props) => {
                         ></video>
                     </div>
                     {peers &&
-                        peers.map((peer, index, arr) => createParticipantVideo(peer, index, arr))}
+                        peers.map((peer, index, arr) =>
+                            createParticipantVideo(peer, index, arr)
+                        )}
                 </div>
                 <ControlBar
                     clickScreenSharing={clickScreenSharing}

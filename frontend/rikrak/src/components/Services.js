@@ -1,7 +1,7 @@
 import React from "react";
-import Icon1 from "../images/Video_call.svg";
-import Icon2 from "../images/fast_loading.svg";
-import Icon3 from "../images/server_cluster.svg";
+import Icon1 from "../Images/Video_call.svg";
+import Icon2 from "../Images/fast_loading.svg";
+import Icon3 from "../Images/server_cluster.svg";
 import "./style/Services.css";
 
 const Services = () => {

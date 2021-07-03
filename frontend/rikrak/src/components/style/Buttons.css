@@ -12,6 +12,7 @@
 }
 .Button:hover {
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .primary {
@@ -28,11 +29,13 @@
   background: #01bf71;
 }
 
-.dark {
+.dark,
+.dark:hover {
   color: #010606;
 }
 
-.light {
+.light,
+.light:hover {
   color: #fff;
 }
 
@@ -50,4 +53,30 @@
 
 .fontSmall {
   font-size: 16px;
+}
+
+.Control-btn {
+  border-radius: 50px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 7px 5px 5px 5px;
+  padding: 8px;
+  background: rgb(23 23 23);
+  color: #fff;
+}
+.Control-btn:hover {
+  color: #01bf71;
+}
+@media screen and (max-width: 480px) {
+  .Control-btn {
+    margin: 10px 0px;
+  }
+}
+
+.btn-svg {
+  height: 30px;
+  width: 30px;
 }

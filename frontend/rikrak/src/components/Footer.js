@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import "./style/Footer.css";
+import { animateScroll as scroll } from "react-scroll";
 
 const Footer = () => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <footer className="FooterContainer">
       <div className="FooterWrap">
@@ -11,19 +16,19 @@ const Footer = () => {
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
               <h1 className="FooterLinkTitle">About Us</h1>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 How it works
               </a>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 Testimonials
               </a>
             </div>
             <div className="FooterLinkItems">
               <h1 className="FooterLinkTitle">Contact Us</h1>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 Contact
               </a>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 Suport
               </a>
             </div>
@@ -31,10 +36,10 @@ const Footer = () => {
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
               <h1 className="FooterLinkTitle">Videos</h1>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 Submit Video
               </a>
-              <a className="FooterLink" href="/">
+              <a className="FooterLink" href="/main">
                 Ambassadors
               </a>
             </div>
@@ -72,7 +77,7 @@ const Footer = () => {
         </div>
         <div className="SocialMedia">
           <div className="SocialMediaWrap">
-            <Link className="SocialLogo" to="/">
+            <Link className="SocialLogo" to="/main" onClick={toggleHome}>
               RikRak
             </Link>
             <small className="WebsiteRights">

@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Col, Container, Row, Form, Button, Image, Alert } from "react-bootstrap";
 import "./style/Screen.css";
-import Header from "../components/Header";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link } from "react-router-dom";
 
@@ -29,49 +27,34 @@ function ForgetPasswordScreen() {
 
     return (
         <>
-            <Header />
-            <div className="LoginScreen">
-                <Container>
-                    <Row className="py-5">
-                        <Col lg={8} className="LoginScreen__Image">
-                            <Image
-                                src="https://cdn.pixabay.com/photo/2020/06/17/16/28/webinar-5310229_960_720.jpg"
-                                alt="product"
-                                rounded
-                                fluid
-                            />
-                        </Col>
-                        <Col lg={4} className="m-auto">
-                            <Form onSubmit={submit}>
-                                <div className="Form-SubHeading">Reset Password For your Account</div>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control
-                                        type="email"
-                                        placeholder="Enter email"
-                                        ref={emailRef}
-                                        required
-                                    />
-                                    <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-                                    </Form.Text>
-                                </Form.Group>
-                                <Button type="submit" disabled={loading} block>
-                                    Reset Password
-                                </Button>
-                            </Form>
-                            <Row className="justify-content-md-center mt-3">
-                                <Link to="/login">Login</Link>
-                            </Row>
-                            <Row className="justify-content-md-center mt-3">
-                                {error && <Alert variant="danger">{error}</Alert>}
-                            </Row>
-                            <Row className="justify-content-md-center mt-3">
-                                {message && <Alert variant="info">{message}</Alert>}
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
+            <div className="Conatiner">
+                <div className="FormWrap">
+                    <Link className="Icons" to="/main">
+                        RikRak
+                    </Link>
+                    <div className="FormContent">
+                        <form className="Form" onSubmit={submit}>
+                            <h1 className="FormH1">Reset Password For your Account</h1>
+                            <label className="FormLabel" htmlFor="for">
+                                Email
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="email"
+                                ref={emailRef}
+                                required
+                            ></input>
+                            <button className="FormButton" type="submit" disabled={loading}>
+                                Reset Password
+                            </button>
+                            {error && <span className="Text Error">{error}</span>}
+                            {message && <span className="Text Message">{message}</span>}
+                            <Link to="/login" className="Text">
+                                Log in
+                            </Link>
+                        </form>
+                    </div>
+                </div>
             </div>
         </>
     );

@@ -51,6 +51,7 @@
 
 .FooterLinkTitle {
   font-size: 14px;
+  font-weight: 600;
   margin-bottom: 16px;
 }
 
@@ -95,13 +96,17 @@
   margin-bottom: 16px;
   font-weight: bold;
 }
+.SocialLogo:hover {
+  color: #01bf71;
+}
 
 .WebsiteRights {
   color: #fff;
   margin-bottom: 16px;
 }
 
-.RikRak {
+.RikRak,
+.RikRak:hover {
   color: #fff;
   text-decoration: none;
 }
@@ -116,4 +121,7 @@
 .SocialIconLink {
   color: #fff;
   font-size: 24px;
+}
+.SocialIconLink:hover {
+  color: #01bf71;
 }

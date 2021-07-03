@@ -1,13 +1,14 @@
 import React from "react";
-import { Navbar, Nav, Button } from "react-bootstrap";
 import {
-  CameraVideoOff,
-  CameraVideo,
-  MicMute,
-  Mic,
-  WindowDock,
-  ChatRightText,
-} from "react-bootstrap-icons";
+  MdVideocam as CameraOn,
+  MdVideocamOff as CameraOff,
+  MdScreenShare as SharedScreen,
+  MdMicNone as AudioOn,
+  MdMicOff as AudioOff,
+  MdMessage as ChatBox,
+} from "react-icons/md";
+import "./style/ControlBar.css";
+import "./style/Buttons.css";
 
 const ControlBar = ({
   clickChat,
@@ -17,39 +18,60 @@ const ControlBar = ({
   clickScreenSharing,
 }) => {
   return (
-    <div>
-      <Navbar bg="light" variant="light">
-        {/* left */}
-        <Nav>
-          <Button onClick={toggleCameraAudio} data-switch="video">
+    <div className="ControlBar">
+      <nav className="NavBottom">
+        <div>
+          <button
+            className="Control-btn"
+            onClick={toggleCameraAudio}
+            data-switch="video"
+          >
             {userVideoAudio.video ? (
-              <CameraVideo></CameraVideo>
+              <CameraOn
+                className="btn-svg"
+                style={{ pointerEvents: "none" }}
+              ></CameraOn>
             ) : (
-              <CameraVideoOff></CameraVideoOff>
+              <CameraOff
+                className="btn-svg"
+                style={{ pointerEvents: "none" }}
+              ></CameraOff>
             )}
-          </Button>
-          <Button onClick={toggleCameraAudio} data-switch="audio">
-            {userVideoAudio.audio ? <Mic></Mic> : <MicMute></MicMute>}
-          </Button>
-        </Nav>
+          </button>
+          <button
+            className="Control-btn"
+            onClick={toggleCameraAudio}
+            data-switch="audio"
+          >
+            {userVideoAudio.audio ? (
+              <AudioOn
+                className="btn-svg"
+                style={{ pointerEvents: "none" }}
+              ></AudioOn>
+            ) : (
+              <AudioOff
+                className="btn-svg"
+                style={{ pointerEvents: "none" }}
+              ></AudioOff>
+            )}
+          </button>
+        </div>
 
-        {/* centre */}
-        <Nav className="mx-auto">
-          <Button onClick={clickScreenSharing}>
-            <WindowDock></WindowDock>
-          </Button>
-          <Button onClick={clickChat}>
-            <ChatRightText></ChatRightText>
-          </Button>
-        </Nav>
+        <div>
+          <button className="Control-btn" onClick={clickScreenSharing}>
+            <SharedScreen className="btn-svg"></SharedScreen>
+          </button>
+          <button className="Control-btn" onClick={clickChat}>
+            <ChatBox className="btn-svg"></ChatBox>
+          </button>
+        </div>
 
-        {/* right */}
-        <Nav className="justify-content-end">
-          <Button variant="danger" onClick={goToBack}>
+        <div>
+          <button className="End-Meeting" onClick={goToBack}>
             End Meeting
-          </Button>
-        </Nav>
-      </Navbar>
+          </button>
+        </div>
+      </nav>
     </div>
   );
 };

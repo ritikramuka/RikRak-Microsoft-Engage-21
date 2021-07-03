@@ -7,17 +7,20 @@
   display: flex;
   flex-direction: column;
   width: 25%;
-  height: 100%;
-  background-color: #f5f5f5;
+  height: auto;
+  background-color: #010606;
   transition: all 0.5s ease;
   overflow: hidden;
+  text-align: center;
 }
 
 .text-heading {
+  height: 5%;
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 800;
   justify-content: center;
+  color: #fff;
 }
 
 .text-area {
@@ -33,7 +36,7 @@
   width: 100%;
   flex-direction: column;
   padding: 15px;
-  color: #454552;
+  color: #fff;
 }
 
 .senders-text {
@@ -43,9 +46,11 @@
   align-items: flex-start;
   font-size: 16px;
   text-align: left;
+  color: #fff;
 }
 
 .senders-text > strong {
+  text-transform: capitalize;
   margin-left: 3px;
 }
 
@@ -56,8 +61,9 @@
   padding: 9px;
   font-size: 14px;
   background: #fff;
+  color: #010606;
   border-radius: 1.125rem 1.125rem 1.125rem 0;
-  box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
+  font-weight: 550;
 }
 
 .users-text {
@@ -70,6 +76,7 @@
 }
 
 .users-text > strong {
+  text-transform: capitalize;
   margin-right: 5px;
 }
 
@@ -81,16 +88,17 @@
   font-size: 14px;
   text-align: left;
   border-radius: 1.125rem 1.125rem 0 1.125rem;
-  background: #333;
-  color: white;
+  background: #01bf71;
+  color: #010606;
+  font-weight: 550;
 }
 
 .bottom-input {
   bottom: 0;
   width: 100%;
   height: 8%;
-  padding: 13px;
-  border-radius: 35px;
-  margin: 0px 10px;
-  text-align: center;
+  padding: 12px 14px;
+  border: none;
+  background: rgb(23 23 23 / 90%);
+  color: #fff;
 }

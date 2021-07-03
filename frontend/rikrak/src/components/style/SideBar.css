@@ -62,6 +62,7 @@
   list-style: none;
   transition: 0.2s ease-in-out;
   cursor: pointer;
+  color: #fff;
 }
 .SidebarLink:hover {
   color: #01bf71;

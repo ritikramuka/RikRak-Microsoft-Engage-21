@@ -1,3 +1,165 @@
-.dropdown-toggle:after {
-  content: none;
+.Header {
+  height: 80px;
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #fff;
+}
+.HeaderBgDark {
+  background: #000;
+}
+.HeaderBgTrans {
+  background: transparent;
+}
+@media screen and (max-width: 960px) {
+  .Header {
+    transition: 0.8s all ease;
+  }
+}
+
+.HeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1100px;
+}
+
+.HeaderLogo,
+.HeaderLogo:hover {
+  color: #fff;
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.HeaderBtn {
+  align-items: center;
+  background-color: #01bf71;
+  padding: 5px;
+  margin: 23px 0px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.profile {
+  padding-bottom: 3px;
+  color: #010606;
+  height: 25px;
+  width: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #01bf71;
+  width: 250px;
+  height: 350px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.HeaderBtn:hover .dropdown-content {
+  display: block;
+}
+
+.circle {
+  position: absolute;
+  left: 50%;
+  top: -260px;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  clip-path: circle();
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -16px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: 0 0 0 20px #010606;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.circle .imgBx {
+  position: absolute;
+  left:50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 310px;
+}
+
+.profile_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  transform-origin: top;
+}
+.imgBx:hover .profile_image {
+  transform: scale(1.25);
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  left: 0;
+  bottom: 0;
+}
+
+.content h3 {
+  color: #010606;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-size: 1.1rem;
+}
+
+.Name {
+  font-weight: 600;
+}
+
+.Logout-btn {
+  border-radius: 50px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 7px 13px;
+  margin-top: 6px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  background: #010606;
+  color: #fff;
+  font-size: 0.9rem;
 }

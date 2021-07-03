@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Col, Container, Row, Form, Button, Image, Alert } from "react-bootstrap";
 import "./style/Screen.css";
-import Header from "../components/Header";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import "./style/Forms.css";
 
 function LoginScreen() {
     const emailRef = useRef();
@@ -29,56 +28,46 @@ function LoginScreen() {
 
     return (
         <>
-            <Header />
-            <div className="LoginScreen">
-                <Container>
-                    <Row className="py-5">
-                        <Col lg={8} className="LoginScreen__Image">
-                            <Image
-                                src="https://cdn.pixabay.com/photo/2020/06/17/16/28/webinar-5310229_960_720.jpg"
-                                alt="product"
-                                rounded
-                                fluid
-                            />
-                        </Col>
-                        <Col lg={4} className="m-auto">
-                            <Form onSubmit={submit}>
-                                <div className="Form-Heading">Welcome!</div>
-                                <div className="Form-SubHeading">Login to your Account</div>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control
-                                        type="email"
-                                        placeholder="Enter email"
-                                        ref={emailRef}
-                                        required
-                                    />
-                                    <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-                                    </Form.Text>
-                                </Form.Group>
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        type="password"
-                                        placeholder="Password"
-                                        ref={passwordRef}
-                                        required
-                                    />
-                                </Form.Group>
-                                <Button type="submit" disabled={loading} block>
-                                    Login
-                                </Button>
-                            </Form>
-                            <Row className="justify-content-md-center mt-3">
-                                <Link to="/forgot-password">Forgot Passsword?</Link>
-                            </Row>
-                            <Row className="justify-content-md-center mt-3">
-                                {error && <Alert variant="danger">{error}</Alert>}
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
+            <div className="Conatiner">
+                <div className="FormWrap">
+                    <Link className="Icons" to="/main">
+                        RikRak
+                    </Link>
+                    <div className="FormContent">
+                        <form className="Form" onSubmit={submit}>
+                            <h1 className="FormH1 heading">Welcome!</h1>
+                            <h1 className="FormH1">Login to your Account</h1>
+                            <label className="FormLabel" htmlFor="for">
+                                Email
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="email"
+                                ref={emailRef}
+                                required
+                            ></input>
+                            <label className="FormLabel" htmlFor="for">
+                                Password
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="password"
+                                ref={passwordRef}
+                                required
+                            ></input>
+                            <button className="FormButton" type="submit" disabled={loading}>
+                                Log in
+                            </button>
+                            {error && <span className="Text Error">{error}</span>}
+                            <Link to="/forgot-password" className="Text">
+                                Forget password?
+                            </Link>
+                            <Link to="/signup" className="Text">
+                                Don't have an account? Sign up
+                            </Link>
+                        </form>
+                    </div>
+                </div>
             </div>
         </>
     );

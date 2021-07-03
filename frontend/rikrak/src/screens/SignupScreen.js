@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Alert, Button, Container, Form, Row, Col } from "react-bootstrap";
-import Header from "../components/Header";
 import { useAuth } from "../Contexts/AuthContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { storage, database } from "../Firebase/firebase";
+import "./style/Forms.css";
 
 function SignupScreen() {
     const firstNameRef = useRef();
@@ -19,10 +18,9 @@ function SignupScreen() {
 
     const handleUpload = (e) => {
         let file = e?.target?.files[0];
-        if (file != null)
-            setUserImage(file);
+        if (file != null) setUserImage(file);
         // console.log(file)
-    }
+    };
 
     async function submit(e) {
         e.preventDefault();
@@ -35,113 +33,132 @@ function SignupScreen() {
             setError("");
             setLoading(true);
 
-            const userCredential = await signup(emailRef.current.value, passwordRef.current.value);
+            const userCredential = await signup(
+                emailRef.current.value,
+                passwordRef.current.value
+            );
+
             const email = emailRef.current.value;
             const firstName = firstNameRef.current.value;
+            const lastName = lastNameRef.current.value;
             const uid = userCredential.user.uid;
-            const uploadTask = storage.ref(`/users/${uid}/ProfileImage`).put(userImage);
-            uploadTask.on('state_changed',
+
+            const uploadTask = storage
+                .ref(`/users/${uid}/ProfileImage`)
+                .put(userImage);
+            uploadTask.on(
+                "state_changed",
                 (snapshot) => {
-                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log(progress);
                 },
                 (error) => {
                     // Handle unsuccessful uploads
-                    setError("Failed to upload File")
+                    setError("Failed to upload File");
                 },
-                () => {
-                    uploadTask.snapshot.ref.getDownloadURL().then((imgDownloadURL) => {
-                        database.users.doc(uid).set({
-                            email: email,
-                            userId: uid,
-                            firstName: firstName,
-                            profileUrl: imgDownloadURL
-                        })
-                    });
+                async () => {
+                    await uploadTask.snapshot.ref
+                        .getDownloadURL()
+                        .then((imgDownloadURL) => {
+                            database.users.doc(uid).set({
+                                email: email,
+                                userId: uid,
+                                firstName: firstName,
+                                lastName: lastName,
+                                profileUrl: imgDownloadURL,
+                            });
+                        });
+                    setLoading(false);
+                    history.push("/");
                 }
             );
-            history.push("/");
         } catch {
             setError("Failed to create an account");
         }
+
         setLoading(false);
     }
 
     return (
         <>
-            <Header />
-            <div className="SignupScreen">
-                <Container>
-                    <Row className="justify-content-md-center mt-3">
-                        <Form onSubmit={submit}>
-                            <div className="Form-Heading">Create a new account</div>
-                            <div className="Form-SubHeading">It's quick and easy.</div>
-                            <Row>
-                                <Col>
-                                    <Form.Group>
-                                        <Form.Label>First Name</Form.Label>
-                                        <Form.Control
-                                            placeholder="First name"
-                                            ref={firstNameRef}
-                                            required
-                                        />
-                                    </Form.Group>
-                                </Col>
-                                <Col>
-                                    <Form.Group>
-                                        <Form.Label>Last Name</Form.Label>
-                                        <Form.Control
-                                            placeholder="Last name"
-                                            ref={lastNameRef}
-                                            required
-                                        />
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                            <Form.Group controlId="formGroupEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control
-                                    type="email"
-                                    placeholder="Enter email"
-                                    ref={emailRef}
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formGroupPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    placeholder="Password"
-                                    ref={passwordRef}
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formGroupConfirmPassword">
-                                <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    placeholder="Confirm Password"
-                                    ref={passwordConfirmRef}
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Text className="text-muted">
-                                    We'll never share your details with anyone else.
-                                </Form.Text>
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.File id="exampleFormControlFile1" label="Example file input" onChange={(e) => handleUpload(e)} />
-                            </Form.Group>
-                            <Button type="Submit" disabled={loading} block>
-                                Sign Up
-                            </Button>
-                        </Form>
-                    </Row>
-                    <Row className="justify-content-md-center mt-3">
-                        {error && <Alert variant="danger">{error}</Alert>}
-                    </Row>
-                </Container>
+            <div className="Conatiner">
+                <div className="FormWrap">
+                    <Link className="Icons" to="/main">
+                        RikRak
+                    </Link>
+                    <div className="FormContent">
+                        <form className="Form FromBig" onSubmit={submit}>
+                            <h1 className="FormH1">Create a new account</h1>
+                            <div className="InputName">
+                                <div className="InputNameRow">
+                                    <label className="FormLabel" htmlFor="for">
+                                        First Name
+                                    </label>
+                                    <input
+                                        className="FormInput mr20"
+                                        type="text"
+                                        ref={firstNameRef}
+                                        required
+                                    ></input>
+                                </div>
+                                <div className="InputNameRow">
+                                    <label className="FormLabel" htmlFor="for">
+                                        Last Name
+                                    </label>
+                                    <input
+                                        className="FormInput"
+                                        type="text"
+                                        ref={lastNameRef}
+                                    ></input>
+                                </div>
+                            </div>
+                            <label className="FormLabel" htmlFor="for">
+                                Email
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="email"
+                                ref={emailRef}
+                                required
+                            ></input>
+                            <label className="FormLabel" htmlFor="for">
+                                Password
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="password"
+                                ref={passwordRef}
+                                required
+                            ></input>
+                            <label className="FormLabel" htmlFor="for">
+                                Confirm Password
+                            </label>
+                            <input
+                                className="FormInput"
+                                type="password"
+                                ref={passwordConfirmRef}
+                                required
+                            ></input>
+                            <label className="FormLabel" htmlFor="for">
+                                Choose a profile photo
+                            </label>
+                            <input
+                                type="file"
+                                id="myfile"
+                                className="FormInput"
+                                onChange={(e) => handleUpload(e)}
+                            ></input>
+                            <button className="FormButton" type="submit" disabled={loading}>
+                                Sign up
+                            </button>
+                            {error && <span className="Text Error">{error}</span>}
+                            <Link className="Text" to="/login">
+                                Have an account? Log in
+                            </Link>
+                        </form>
+                    </div>
+                </div>
             </div>
         </>
     );

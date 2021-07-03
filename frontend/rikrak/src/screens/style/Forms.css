@@ -1,0 +1,166 @@
+.Conatiner {
+  min-height: 100vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    108deg,
+    rgba(1, 147, 86, 1) 0%,
+    rgba(10, 201, 122, 1) 100%
+  );
+}
+
+.FormWrap {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 400px) {
+  .FormWrap {
+    height: 80%;
+  }
+}
+
+.Icons,
+.Icons:hover {
+  margin-left: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 32px;
+}
+@media screen and (max-width: 480px) {
+  .Icons {
+    margin-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.FormContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 480px) {
+  .FormContent {
+    padding: 10px;
+  }
+}
+
+.Form {
+  background: #010101;
+  max-width: 400px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+  margin: 8px auto;
+  padding: 80px 32px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+@media screen and (max-width: 400px) {
+  .Form {
+    padding: 32px 32px;
+  }
+}
+
+.FromBig {
+  max-width: 587px;
+}
+
+.FormH1 {
+  margin-bottom: 40px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.InputName {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 624px) {
+  .InputName {
+    flex-direction: column;
+  }
+  .InputNameRow {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.FormLabel {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.FormInput {
+  padding: 12px 14px;
+  margin-bottom: 32px;
+  border: none;
+  border-radius: 4px;
+}
+
+.FormInput[type="file"] {
+  padding-left: 0px;
+}
+
+.FormButton {
+  background-color: #01bf71;
+  padding: 12px 0;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Text,
+.Text:hover {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.Text:first-of-type {
+  margin-top: 24px;
+}
+
+.Error,
+.Error:hover {
+  color: #f00668;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.Message,
+.Message:hover {
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+@media screen and (max-width: 624px) {
+  .mr20 {
+    margin-right: 0px;
+  }
+}

@@ -32,7 +32,8 @@
   max-width: 1100px;
 }
 
-.NavLogo {
+.NavLogo,
+.NavLogo:hover {
   color: #fff;
   justify-self: flex-start;
   cursor: pointer;
@@ -49,7 +50,7 @@
 }
 @media screen and (max-width: 768px) {
   .MobileIcon {
-    display: block;
+    display: flex;
     position: absolute;
     top: 0;
     right: 0;
@@ -76,7 +77,8 @@
   height: 80px;
 }
 
-.NavLinks {
+.NavLinks,
+.NavLinks:hover {
   color: #fff;
   display: flex;
   align-items: center;

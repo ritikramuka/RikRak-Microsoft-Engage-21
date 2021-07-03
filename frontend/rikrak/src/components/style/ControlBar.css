@@ -1,0 +1,37 @@
+.ControlBar {
+  background: rgb(23 23 23);
+  height: 8%;
+  overflow: hidden;
+}
+
+.NavBottom {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+@media screen and (max-width: 480px) {
+  .NavBottom {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
+
+.End-Meeting {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: Red;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 11px 5px 8px 5px;
+  color: #fff;
+}
+@media screen and (max-width: 480px) {
+  .End-Meeting {
+    font-size: 15px;
+    margin: 15px 0px;
+    margin-right: 5px;
+  }
+}

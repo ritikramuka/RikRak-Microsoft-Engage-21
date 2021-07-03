@@ -1,17 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import {
-    Col,
-    Container,
-    Form,
-    Button,
-    Image,
-    Row,
-    FormControl,
-    Alert,
-} from "react-bootstrap";
 import "./style/HomeScreen.css";
-import "./style/Screen.css";
 import socket from "../Sockets/socket";
+import "../components/style/Buttons.css";
+import Video from "../videos/video.mp4";
 import Header from "../components/Header";
 
 const HomeScreen = (props) => {
@@ -23,6 +14,7 @@ const HomeScreen = (props) => {
     useEffect(() => {
         socket.on("errorHasUser", ({ error }) => {
             if (!error) {
+                console.log(roomNameRef.current.value, userNameRef.current.value);
                 const roomName = roomNameRef.current.value;
                 const userName = userNameRef.current.value;
 
@@ -51,49 +43,60 @@ const HomeScreen = (props) => {
 
     return (
         <>
-        <Header></Header>
-        <div className="HomeScreen">
-            <Container>
-                <Row className="py-5">
-                    <Col lg={8}>
-                        <Image
-                            src="https://cdn.pixabay.com/photo/2020/06/29/13/58/video-conference-5352757_960_720.png"
-                            fluid
-                        ></Image>
-                    </Col>
-                    <Col lg={4} className="">
-                        <Form>
-                            <div className="mt-5">
-                                <div className="Form-Heading">RikRak-Friends</div>
-                                <div className="Form-SubHeading">
-                                    Create video calls with friends and family with one click!👋
-                                </div>
+            <Header></Header>
+            <div className="HomeContainer" id="home">
+                <div className="HomeBg">
+                    <video
+                        className="VideoBg"
+                        autoPlay
+                        loop
+                        muted
+                        src={Video}
+                        type="video/mp4"
+                    />
+                </div>
+                <div className="HomeContent">
+                    <h1 className="HomeH1">Pick name.</h1>
+                    <h1 className="HomeH1">Share name.</h1>
+                    <h1 className="HomeH1">Start chatting.</h1>
+                    <p className="HomerP">
+                        Each call has its own room name. Just pick a room name and share with
+                        your friends. It's really that easy.
+                    </p>
+                    <div className="HomeInputWrapper">
+                        <div className="InputContainer">
+                            <div className="InputColumn1">
+                                <h2 className="HomeH2">Pick a room name.</h2>
+                                <h2 className="HomeH2">How about this one?</h2>
                             </div>
-                            <div className="mt-5">
-                                <FormControl
-                                    placeholder="Room Name"
-                                    aria-label="Room Name"
-                                    aria-describedby="basic-addon2"
-                                    ref={roomNameRef}
-                                    className="mt-2"
-                                />
-                                <FormControl
-                                    placeholder="User Name"
-                                    aria-label="User Name"
-                                    aria-describedby="basic-addon2"
-                                    ref={userNameRef}
-                                    className="mt-2"
-                                />
-                                <Button variant="primary" onClick={join} className="my-3" block>
-                                    Enter
-                                </Button>
-                                {err ? <Alert variant="danger">{errMsg}</Alert> : null}
+                            <div className="InputColumn2">
+                                <form className="InputForm">
+                                    <input
+                                        className="Input"
+                                        type="text"
+                                        ref={roomNameRef}
+                                        placeholder="Room name"
+                                    />
+                                    <input
+                                        className="Input"
+                                        type="text"
+                                        ref={userNameRef}
+                                        placeholder="User name"
+                                    />
+                                    <button
+                                        className="Button SubmitSecondary small fontSmall"
+                                        type="button"
+                                        onClick={join}
+                                    >
+                                        Go to my Call
+                                    </button>
+                                    {err && <span className="Text Error">{errMsg}</span>}
+                                </form>
                             </div>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

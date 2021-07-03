@@ -29,7 +29,7 @@ const HeroSection = () => {
         </p>
         <div className="HeroBtnWrapper">
           <Link
-            to="signup"
+            to="/login"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             className={`Button primary dark small fontSmall`}

@@ -1,0 +1,149 @@
+.HomeContainer {
+  background: #0c0c0c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  height: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.HomeBg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.VideoBg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background: #232a34;
+}
+
+.HomeContent {
+  z-index: 3;
+  width: 100%;
+  padding: 0 24px;
+  position: inline;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1100px;
+}
+
+.HomeH1 {
+  color: #fff;
+  font-size: 48px;
+}
+@media screen and (max-width: 768px) {
+  .HomeH1 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .HomeH1 {
+    font-size: 32px;
+  }
+}
+
+.HomeH2 {
+  color: #010606;
+  font-size: 30px;
+}
+@media screen and (max-width: 768px) {
+  .HomeH2 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .HomeH2 {
+    font-size: 24px;
+  }
+}
+
+.HomerP {
+  margin-top: 24px;
+  color: #fff;
+  font-size: 24px;
+  text-align: start;
+  max-width: 600px;
+}
+@media screen and (max-width: 768px) {
+  .HomerP {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .HomerP {
+    font-size: 18px;
+  }
+}
+
+.HomeInputWrapper {
+  margin-top: 20px;
+  padding: 30px 24px 5px 30px;
+  background: #01bf71;
+}
+
+.InputContainer {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .InputContainer {
+    flex-direction: column;
+  }
+}
+
+.InputForm {
+  padding: 0 25px 25px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Input {
+  float: left;
+  clear: both;
+}
+
+.Input {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  width: 90%;
+  outline: none;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: 0.2s ease all;
+  border: none;
+  border-radius: 4px;
+}
+@media screen and (max-width: 768px) {
+  .Input {
+    margin: 15px 0;
+  }
+}
+
+.Input[type="text"]:focus {
+  border-color: #010606;
+}
+
+.SubmitSecondary {
+  background: #010606;
+  color: #fff;
+}
+.SubmitSecondary:hover {
+  background: #fff;
+  color: #010606;
+}

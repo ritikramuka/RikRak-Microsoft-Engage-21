@@ -30,7 +30,7 @@ const Navbar = ({ toggle }) => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <nav className={`Nav ${scrollNav ? "NavBgDark" : "NavBgTrans"}`}>
           <div className="NavbarContainer">
-            <Link className="NavLogo" to="/" onClick={toggleHome}>
+            <Link className="NavLogo" to="/main" onClick={toggleHome}>
               RikRak
             </Link>
             <div className="MobileIcon" onClick={toggle}>
@@ -47,9 +47,9 @@ const Navbar = ({ toggle }) => {
                   <ScrollLink
                     className="NavLinks"
                     to={to}
-                    smooth={true}
+                    smooth="true"
                     duration={500}
-                    spy={true}
+                    spy={true.toString()}
                     exact="true"
                     offset={-80}
                   >
@@ -59,7 +59,7 @@ const Navbar = ({ toggle }) => {
               ))}
             </ul>
             <nav className="NavBtn">
-              <Link className="NavBtnLink" to="/signin">
+              <Link className="NavBtnLink" to="/login">
                 Log In
               </Link>
             </nav>

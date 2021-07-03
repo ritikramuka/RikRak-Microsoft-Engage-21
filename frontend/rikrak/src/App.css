@@ -1,9 +1,25 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Encode Sans Expanded', sans-serif;
+  font-family: "Encode Sans Expanded", sans-serif;
 }
 
 Button {
   margin-right: 4px;
+}
+
+Link,
+Link:link,
+Link:visited,
+Link:hover,
+Link:active {
+  text-decoration: none;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
 }
