@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "dev": "concurrently \"nodemon backend/server.js\" \"npm start --prefix frontend/rikrak\""
   },
