@@ -6,3 +6,6 @@ secrets.js
 
 # caches
 .eslintcache
+
+# build
+/build
