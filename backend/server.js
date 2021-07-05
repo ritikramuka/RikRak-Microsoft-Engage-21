@@ -4,7 +4,7 @@ const http = require("http").createServer(app);
 const path = require("path");
 const io = require("socket.io")(http);
 
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -106,6 +106,16 @@ io.on("connection", (socket) => {
       .to(roomId)
       .emit("userLeft", { userId: socket.id, userName: [socket.id] });
     io.sockets.sockets[socket.id].leave(roomId);
+  });
+
+  socket.on('getDocument', roomId => {
+    const data = ''
+    socket.join(roomId)
+    socket.emit('loadDocument', data)
+
+    socket.on('sendChanges', delta => {
+      socket.broadcast.to(roomId).emit('receiveChanges', delta)
+    })
   });
 });
 
