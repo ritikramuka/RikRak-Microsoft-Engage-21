@@ -108,6 +108,7 @@ io.on("connection", (socket) => {
     io.sockets.sockets[socket.id].leave(roomId);
   });
 
+  // Word Pad Event Listeners
   socket.on('getDocument', roomId => {
     const data = ''
     socket.join(roomId)
@@ -117,6 +118,8 @@ io.on("connection", (socket) => {
       socket.broadcast.to(roomId).emit('receiveChanges', delta)
     })
   });
+
+  socket.on('drawing', (data) => socket.to(data.roomId).broadcast.emit('drawing', data));
 });
 
 http.listen(PORT, () => {

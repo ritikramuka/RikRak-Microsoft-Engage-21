@@ -5,7 +5,8 @@ import VideoCard from "../components/VideoCard";
 import ControlBar from "../components/ControlBar";
 import Chat from "../components/Chat";
 import "./style/VideoCallScreen.css";
-import WordScreen from "./WordScreen";
+import WordScreen from "../components/WordScreen";
+import Board from "../components/Board";
 
 const VideoCallScreen = (props) => {
     const currentUser = sessionStorage.getItem("user");
@@ -13,6 +14,8 @@ const VideoCallScreen = (props) => {
 
     const [displayChat, setDisplayChat] = useState(false);
     const [displayWord, setDisplayWord] = useState(false);
+    const [displayBoard, setDisplayBoard] = useState(false);
+
     const [screenShare, setScreenShare] = useState(false);
     const [userVideoAudio, setUserVideoAudio] = useState({
         localUser: { video: true, audio: true },
@@ -214,6 +217,13 @@ const VideoCallScreen = (props) => {
         setDisplayWord(!displayWord);
     };
 
+    // Open Board
+    const clickBoard = (e) => {
+        e.stopPropagation();
+        setDisplayBoard(!displayBoard);
+        console.log(displayBoard);
+    };
+
     // End Meeting
     const goToBack = (e) => {
         e.preventDefault();
@@ -335,6 +345,7 @@ const VideoCallScreen = (props) => {
                     clickScreenSharing={clickScreenSharing}
                     clickChat={clickChat}
                     clickWord={clickWord}
+                    clickBoard={clickBoard}
                     goToBack={goToBack}
                     toggleCameraAudio={toggleCameraAudio}
                     userVideoAudio={userVideoAudio["localUser"]}
@@ -344,6 +355,7 @@ const VideoCallScreen = (props) => {
             </div>
             <Chat display={displayChat} roomId={roomId} onClick={clickChat} />
             <WordScreen display={displayWord} roomId={roomId} onClick={clickWord} />
+            <Board display={displayBoard} roomId={roomId} clickBoard={clickBoard} onClick={clickBoard} />
         </div>
     );
 };

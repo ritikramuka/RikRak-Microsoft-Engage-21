@@ -16,7 +16,8 @@ const ControlBar = ({
   toggleCameraAudio,
   userVideoAudio,
   clickScreenSharing,
-  clickWord
+  clickWord,
+  clickBoard
 }) => {
   return (
     <div className="ControlBar">
@@ -69,7 +70,10 @@ const ControlBar = ({
 
         <div>
           <button className="Control-btn" onClick={clickWord}>
-            <ChatBox className="btn-svg"></ChatBox>
+            Word
+          </button>
+          <button className="Control-btn" onClick={clickBoard}>
+            Board
           </button>
           <button className="End-Meeting" onClick={goToBack}>
             End Meeting

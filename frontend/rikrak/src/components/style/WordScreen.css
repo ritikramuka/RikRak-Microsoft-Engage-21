@@ -3,9 +3,9 @@
 }
 
 .quill-container .ql-editor {
-  width: 8.5in;
-  min-height: 11in;
-  padding: 1in;
+  width: 100%;
+  min-height: 80%;
+  padding: 1rem;
   margin: 1rem;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   background-color: white;
