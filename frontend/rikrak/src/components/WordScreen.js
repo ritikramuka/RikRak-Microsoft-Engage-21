@@ -59,10 +59,10 @@ const WordScreen = ({ display, roomId }) => {
             quill.updateContents(delta);
         };
 
-        socket.on("receive-changes", deltaHandler);
+        socket.on("receiveChanges", deltaHandler);
 
         return () => {
-            socket.off("receive-changes", deltaHandler);
+            socket.off("receiveChanges", deltaHandler);
         };
         // eslint-disable-next-line
     }, [socket, quill]);

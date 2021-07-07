@@ -11,6 +11,10 @@
   background-color: white;
 }
 
+.ql-container {
+  height: 82%;
+}
+
 .quill-container .ql-container.ql-snow {
   border: none;
   display: flex;
