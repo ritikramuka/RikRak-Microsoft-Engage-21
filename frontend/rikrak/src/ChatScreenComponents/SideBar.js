@@ -65,7 +65,12 @@ function Sidebar() {
             <div className="sidebar__header">
                 <Avatar src={profileImg} />
                 <div className="ChatLogo">RikRak Chats</div>
-                <button className="chat-icn-btn">
+                <button
+                    className="chat-icn-btn"
+                    onClick={() => {
+                        window.location.href = "/";
+                    }}
+                >
                     <IoMdExit className="exit-icn" />
                 </button>
             </div>
@@ -84,16 +89,10 @@ function Sidebar() {
                 <div className="sidebar__chats">
                     <SideBarChat addNewChat="true" />
                     {rooms.length === 0 ? (
-                        <>
-                            loading...
-                        </>
+                        <>loading...</>
                     ) : (
                         rooms.map((room) => (
-                            <SideBarChat
-                                key={room.id}
-                                id={room.id}
-                                name={room.data.name}
-                            />
+                            <SideBarChat key={room.id} id={room.id} name={room.data.name} />
                         ))
                     )}
                 </div>
