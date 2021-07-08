@@ -1,0 +1,75 @@
+.sidebarxyz {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+  background-color: rgb(23 23 23 / 95%);
+  color: #fff;
+  padding-left: 17px;
+  padding-right: 17px;
+  height: 9vh;
+  align-items: center;
+}
+
+.ChatLogo {
+  color: #fff;
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.exit-icn {
+  height: 23px;
+  width: 23px;
+}
+
+.search-icn {
+  height: 22px;
+  width: 22px;
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.sidebar__search {
+  display: flex;
+  align-items: center;
+  background-color: #010606;
+  height: 7vh;
+  padding: 15px 10px 10px;
+}
+
+.sidebar__searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: rgb(23 23 23 / 90%);
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.sidebar__searchContainer > input {
+  border: none;
+  width: 90%;
+  background-color: transparent;
+}
+
+.sidebar__searchContainer > input:focus {
+  outline-width: 0;
+}
+
+.sidebar__chats {
+  flex: 1;
+  color: #fff;
+  background-color: #010606;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

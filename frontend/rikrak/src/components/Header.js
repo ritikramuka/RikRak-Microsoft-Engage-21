@@ -66,6 +66,9 @@ function Header() {
                 <Link className="HeaderLogo" to="/main" onClick={toggleHome}>
                     RikRak
                 </Link>
+                <Link className="NavLinks" to="/connect">
+                    Connect 
+                </Link>
                 <button className="HeaderBtn">
                     <PersonCircle className="profile" style={{ pointerEvents: "none" }}>
                     </PersonCircle>

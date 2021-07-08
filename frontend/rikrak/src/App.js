@@ -8,6 +8,7 @@ import ForgetPasswordScreen from "./screens/ForgetPasswordScreen";
 import { AuthProvider } from "./Contexts/AuthContext";
 import PrivateRoutes from "./Routes/PrivateRoutes";
 import MainScreen from "./screens/MainScreen";
+import ChatScreen from "./screens/ChatScreen";
 
 function App() {
   return (
@@ -19,12 +20,9 @@ function App() {
             <Route path="/login" component={LoginScreen} />
             <Route path="/signup" component={SignupScreen} />
             <Route path="/forgot-password" component={ForgetPasswordScreen} />
-            <PrivateRoutes
-              path="/room/:roomId"
-              component={VideoCallScreen}
-              exact
-            />
+            <PrivateRoutes path="/room/:roomId" component={VideoCallScreen} exact />
             <Route path="/main" component={MainScreen} />
+            <PrivateRoutes path="/connect" component={ChatScreen}></PrivateRoutes>
           </Switch>
         </AuthProvider>
       </div>

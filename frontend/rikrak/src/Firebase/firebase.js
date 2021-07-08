@@ -12,6 +12,7 @@ export const auth = app.auth();
 const firestore = firebase.firestore();
 export const database = {
     users: firestore.collection('users'),
+    rooms: firestore.collection('rooms'),
     getCurrentTimeStamp: firebase.firestore.FieldValue.serverTimestamp,
     formatDoc: doc => {
         return { id: doc.id, ...doc.data() }
