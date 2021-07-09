@@ -1,4 +1,4 @@
-.sidebarChat {
+.SidebarChat, .SidebarChat:hover {
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -8,32 +8,21 @@
   border-bottom: 1px solid rgb(23 23 23);
 }
 
-.sidebarChat > h2 {
+.SidebarChat > h2 {
   font-size: 19px;
 }
 
-a {
-  text-decoration: none !important;
-  color: black;
-}
-
-.sidebarChat:hover {
-  background-color: #01bf71;
-  color: #010606;
-  border-radius: 20px;
-}
-
-.sidebarChat__info > h2 {
+.SidebarChatInfo > h2 {
   font-size: 21px;
   margin-bottom: 5px;
 }
 
-.sidebarChat__info > p {
+.SidebarChatInfo > p {
   font-size: 13px;
   margin-bottom: 15px;
 }
 
-.sidebarChat__info {
+.SidebarChatInfo {
   margin-left: 15px;
 }
 

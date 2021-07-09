@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Avatar, IconButton } from "@material-ui/core";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import { Avatar } from "@material-ui/core";
 import "./style/Chat.css";
 import { useParams } from "react-router-dom";
 import { database } from "../Firebase/firebase";
@@ -112,10 +111,10 @@ function Chat() {
     }, [messages]);
 
     return (
-        <div className="chatabc">
-            <div className="chat__header2">
+        <div className="SideBar-Chat">
+            <div className="SideBar-Chat-Header">
                 <Avatar src={`https://i.pravatar.cc/150?img=${seed}`} />
-                <div className="chat__headerInfo2">
+                <div className="SideBar-Chat-Header-Info">
                     <div className="GroupName">{roomName}</div>
                     <div className="LastSeen">
                         last seen{" "}
@@ -123,24 +122,24 @@ function Chat() {
                     </div>
                 </div>
 
-                <div className="chat__headerRight2">
+                <div className="SideBar-Chat-Header-Right">
                     <button className="chat-icn-btn" onClick={deleteRoom}>
                         <AiFillDelete className="delete-icn" style={{ pointerEvents: "none" }} />
                     </button>
                 </div>
             </div>
 
-            <div className="chat__body2">
+            <div className="SideBar-Chat-Body">
                 {messages.map((message) => (
-                    <p className={`chat__message2 ${message.email === (currUser.email)
-                        && "chat__reciever2"}`}>
-                        <span className="chat__name2">{message.name + " " + String(message.timestamp?.toDate()).slice(15, 21)}</span>
-                        <p className={`message__sender2 ${message.email === (currUser.email) && "message__reciever2"}`}>{message.message}</p>
+                    <p className={`SideBar-Chat-Message ${message.email === (currUser.email)
+                        && "SideBar-Chat-Message-Reciever"}`}>
+                        <span className="SideBar-Chat-Message-Name">{message.name + " " + String(message.timestamp?.toDate()).slice(15, 21)}</span>
+                        <p className={`Message-Sender ${message.email === (currUser.email) && "Message-Reciever"}`}>{message.message}</p>
                     </p>
                 ))}
-                <div ref={messagesEndRef} id="chat__box"></div>
+                <div ref={messagesEndRef}></div>
             </div>
-            <div className="chat__footer2">
+            <div className="SideBar-Chat-Footer">
                 <button className="chat-icn-btn" onClick={() => setEmoji(!emoji)}>
                     <HiOutlineEmojiHappy
                         className="emoji-icn"

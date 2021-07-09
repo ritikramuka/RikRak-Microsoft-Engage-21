@@ -1,37 +1,18 @@
-.welcome {
-  background-color: #f8f8f8;
+.Welcome {
+  background-color: #010606;
   width: 100vw;
   display: grid;
   place-items: center;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
   flex: 0.65 1;
-  display: flex;
-  flex-direction: column;
 }
 
-.welcome__container {
+.WelcomeContainer {
   padding: 100px;
   text-align: center;
 }
 
-.welcome__text > img {
-  object-fit: contain;
-  height: 300px;
-  margin-bottom: 38px;
-}
-
-.welcome__text > h2 {
-  color: #525252;
-  margin-bottom: 24px;
-}
-
-.welcome__text > p {
+.WelcomeText {
+  font-size: 20px;
   color: rgba(82, 82, 82, 0.5);
-}
-
-.welcome__container > button {
-  margin-top: 50px;
-  text-transform: inherit !important;
-  background-color: #0a8d48 !important;
-  color: white;
 }

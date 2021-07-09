@@ -40,9 +40,9 @@ function SidebarChat({ id, name, addNewChat }) {
     return !addNewChat ? (
         <div>
             <Link to={`/connect/${id}`}>
-                <div className="sidebarChat">
+                <div className="SidebarChat">
                     <Avatar src={`https://i.pravatar.cc/150?img=${seed}`} />
-                    <div className="sidebarChat__info">
+                    <div className="SidebarChatInfo">
                         <h2>{name}</h2>
                         <p>{messages[0]?.message}</p>
                     </div>

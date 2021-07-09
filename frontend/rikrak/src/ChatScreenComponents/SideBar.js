@@ -61,8 +61,8 @@ function Sidebar() {
     }, []);
 
     return (
-        <div className="sidebarxyz">
-            <div className="sidebar__header">
+        <div className="ChatSidebar">
+            <div className="ChatSidebar-Header">
                 <Avatar src={profileImg} />
                 <div className="ChatLogo">RikRak Chats</div>
                 <button
@@ -74,8 +74,8 @@ function Sidebar() {
                     <IoMdExit className="exit-icn" />
                 </button>
             </div>
-            <div className="sidebar__search">
-                <div className="sidebar__searchContainer">
+            <div className="ChatSidebar-Search">
+                <div className="ChatSidebar-SearchConatiner">
                     <AiOutlineSearch className="search-icn" />
                     <input
                         placeholder="Search a chat"
@@ -86,7 +86,7 @@ function Sidebar() {
                 </div>
             </div>
             {sidebarBool ? (
-                <div className="sidebar__chats">
+                <div className="ChatSidebar-Chats">
                     <SideBarChat addNewChat="true" />
                     {rooms.length === 0 ? (
                         <>loading...</>

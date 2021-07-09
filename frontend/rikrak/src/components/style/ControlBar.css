@@ -1,12 +1,14 @@
 .ControlBar {
-  background: rgb(23 23 23);
   height: 8%;
   overflow: hidden;
+  min-width: 50vw;
+  position: absolute;
+  margin-top: 88vh;
 }
 
 .NavBottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: 3%;
   margin-right: 3%;
 }
@@ -23,10 +25,14 @@
   cursor: pointer;
   text-decoration: none;
   background-color: Red;
-  padding: 5px;
-  border-radius: 5px;
-  margin: 11px 5px 8px 5px;
+  padding: 7px;
+  border-radius: 50px;
+  margin: 0px 10px;
   color: #fff;
+  transition: transform 0.2s;
+}
+.End-Meeting:hover {
+  transform: scale(1.1);
 }
 @media screen and (max-width: 480px) {
   .End-Meeting {

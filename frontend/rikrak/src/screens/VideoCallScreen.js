@@ -221,7 +221,6 @@ const VideoCallScreen = (props) => {
     const clickBoard = (e) => {
         e.stopPropagation();
         setDisplayBoard(!displayBoard);
-        console.log(displayBoard);
     };
 
     // End Meeting
@@ -340,18 +339,18 @@ const VideoCallScreen = (props) => {
                         peers.map((peer, index, arr) =>
                             createParticipantVideo(peer, index, arr)
                         )}
+                    <ControlBar
+                        clickScreenSharing={clickScreenSharing}
+                        clickChat={clickChat}
+                        clickWord={clickWord}
+                        clickBoard={clickBoard}
+                        goToBack={goToBack}
+                        toggleCameraAudio={toggleCameraAudio}
+                        userVideoAudio={userVideoAudio["localUser"]}
+                        screenShare={screenShare}
+                        roomId={roomId}
+                    />
                 </div>
-                <ControlBar
-                    clickScreenSharing={clickScreenSharing}
-                    clickChat={clickChat}
-                    clickWord={clickWord}
-                    clickBoard={clickBoard}
-                    goToBack={goToBack}
-                    toggleCameraAudio={toggleCameraAudio}
-                    userVideoAudio={userVideoAudio["localUser"]}
-                    screenShare={screenShare}
-                    roomId={roomId}
-                />
             </div>
             <Chat display={displayChat} roomId={roomId} onClick={clickChat} />
             <WordScreen display={displayWord} roomId={roomId} onClick={clickWord} />

@@ -6,7 +6,10 @@ import {
   MdMicNone as AudioOn,
   MdMicOff as AudioOff,
   MdMessage as ChatBox,
+  MdBrush
 } from "react-icons/md";
+import { SiMicrosoftword } from "react-icons/si";
+import { ImPhoneHangUp } from "react-icons/im";
 import "./style/ControlBar.css";
 import "./style/Buttons.css";
 
@@ -57,26 +60,20 @@ const ControlBar = ({
               ></AudioOff>
             )}
           </button>
-        </div>
-
-        <div>
           <button className="Control-btn" onClick={clickScreenSharing}>
             <SharedScreen className="btn-svg"></SharedScreen>
+          </button>
+          <button className="End-Meeting" onClick={goToBack}>
+            <ImPhoneHangUp className="btn-svg"></ImPhoneHangUp>
           </button>
           <button className="Control-btn" onClick={clickChat}>
             <ChatBox className="btn-svg"></ChatBox>
           </button>
-        </div>
-
-        <div>
-          <button className="Control-btn" onClick={clickWord}>
-            Word
-          </button>
           <button className="Control-btn" onClick={clickBoard}>
-            Board
+            <MdBrush className="btn-svg"></MdBrush>
           </button>
-          <button className="End-Meeting" onClick={goToBack}>
-            End Meeting
+          <button className="Control-btn" onClick={clickWord}>
+            <SiMicrosoftword className="btn-svg"></SiMicrosoftword>
           </button>
         </div>
       </nav>

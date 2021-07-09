@@ -1,10 +1,10 @@
-.sidebarxyz {
+.ChatSidebar {
   display: flex;
   flex-direction: column;
   flex: 0.35;
 }
 
-.sidebar__header {
+.ChatSidebar-Header {
   display: flex;
   justify-content: space-between;
   padding: 7px;
@@ -39,7 +39,7 @@
   margin-right: 5px;
 }
 
-.sidebar__search {
+.ChatSidebar-Search {
   display: flex;
   align-items: center;
   background-color: #010606;
@@ -47,7 +47,7 @@
   padding: 15px 10px 10px;
 }
 
-.sidebar__searchContainer {
+.ChatSidebar-SearchConatiner {
   display: flex;
   align-items: center;
   background-color: rgb(23 23 23 / 90%);
@@ -56,17 +56,18 @@
   border-radius: 20px;
 }
 
-.sidebar__searchContainer > input {
+.ChatSidebar-SearchConatiner > input {
   border: none;
   width: 90%;
   background-color: transparent;
+  color: #fff;
 }
 
-.sidebar__searchContainer > input:focus {
+.ChatSidebar-SearchConatiner > input:focus {
   outline-width: 0;
 }
 
-.sidebar__chats {
+.ChatSidebar-Chats {
   flex: 1;
   color: #fff;
   background-color: #010606;

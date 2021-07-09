@@ -67,7 +67,7 @@ function Header() {
                     RikRak
                 </Link>
                 <Link className="NavLinks" to="/connect">
-                    Connect 
+                    Chat
                 </Link>
                 <button className="HeaderBtn">
                     <PersonCircle className="profile" style={{ pointerEvents: "none" }}>

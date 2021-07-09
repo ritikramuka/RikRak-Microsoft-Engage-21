@@ -64,11 +64,13 @@
   text-decoration: none;
   margin: 7px 5px 5px 5px;
   padding: 8px;
-  background: rgb(23 23 23);
+  background: transparent;
   color: #fff;
+  transition: transform 0.2s;
 }
 .Control-btn:hover {
   color: #01bf71;
+  transform: scale(1.5);
 }
 @media screen and (max-width: 480px) {
   .Control-btn {
@@ -79,4 +81,10 @@
 .btn-svg {
   height: 30px;
   width: 30px;
+}
+@media screen and (max-width: 480px) {
+  .btn-svg {
+    height: 20px;
+    width: 20px;
+  }
 }

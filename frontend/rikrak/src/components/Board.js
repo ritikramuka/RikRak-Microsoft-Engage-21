@@ -1,25 +1,18 @@
 import React, { useRef, useEffect } from 'react';
 import socket from "../Sockets/socket";
 import './style/Board.css';
+import { GiReturnArrow } from "react-icons/gi";
 
 const Board = ({ display, roomId, clickBoard }) => {
     const canvasRef = useRef(null);
     const colorsRef = useRef(null);
 
     useEffect(() => {
-
-        // --------------- getContext() method returns a drawing context on the canvas-----
-
         const canvas = canvasRef.current;
-        const test = colorsRef.current;
         const context = canvas.getContext('2d');
 
-        // ----------------------- Colors --------------------------------------------------
-
         const colors = document.getElementsByClassName('color');
-        console.log(colors, 'the colors');
-        console.log(test);
-        // set the current color
+
         const current = {
             color: 'black',
         };
@@ -34,8 +27,6 @@ const Board = ({ display, roomId, clickBoard }) => {
             colors[i].addEventListener('click', onColorUpdate, false);
         }
         let drawing = false;
-
-        // ------------------------------- create the drawing ----------------------------
 
         const drawLine = (x0, y0, x1, y1, color, emit) => {
             context.beginPath();
@@ -60,8 +51,6 @@ const Board = ({ display, roomId, clickBoard }) => {
             });
         };
 
-        // ---------------- mouse movement --------------------------------------
-
         const onMouseDown = (e) => {
             drawing = true;
             current.x = e.clientX || e.touches[0].clientX;
@@ -81,8 +70,6 @@ const Board = ({ display, roomId, clickBoard }) => {
             drawLine(current.x, current.y, e.clientX || e.touches[0].clientX, e.clientY || e.touches[0].clientY, current.color, true);
         };
 
-        // ----------- limit the number of events per second -----------------------
-
         const throttle = (callback, delay) => {
             let previousCall = new Date().getTime();
             return function () {
@@ -95,8 +82,6 @@ const Board = ({ display, roomId, clickBoard }) => {
             };
         };
 
-        // -----------------add event listeners to our canvas ----------------------
-
         canvas.addEventListener('mousedown', onMouseDown, false);
         canvas.addEventListener('mouseup', onMouseUp, false);
         canvas.addEventListener('mouseout', onMouseUp, false);
@@ -108,8 +93,6 @@ const Board = ({ display, roomId, clickBoard }) => {
         canvas.addEventListener('touchcancel', onMouseUp, false);
         canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
 
-        // -------------- make the canvas fill its parent component -----------------
-
         const onResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -118,7 +101,6 @@ const Board = ({ display, roomId, clickBoard }) => {
         window.addEventListener('resize', onResize, false);
         onResize();
 
-        // ----------------------- socket.io connection ----------------------------
         const onDrawingEvent = (data) => {
             const w = canvas.width;
             const h = canvas.height;
@@ -129,8 +111,6 @@ const Board = ({ display, roomId, clickBoard }) => {
         // eslint-disable-next-line 
     }, []);
 
-    // ------------- The Canvas and color elements --------------------------
-
     return (
         <div className={display ? "" : "board"}>
             <canvas ref={canvasRef} className="whiteboard" />
@@ -140,8 +120,8 @@ const Board = ({ display, roomId, clickBoard }) => {
                 <div className="color green" />
                 <div className="color blue" />
                 <div className="color yellow" />
-                <button onClick={clickBoard}>
-                    Video Call
+                <button className="return-btn" onClick={clickBoard}>
+                    <GiReturnArrow className="btn-svg"></GiReturnArrow>
                 </button>
             </div>
         </div>

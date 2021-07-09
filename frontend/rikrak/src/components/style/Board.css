@@ -18,9 +18,16 @@
 }
 
 .color {
-  display: inline-block;
+  display: block;
   height: 48px;
   width: 48px;
+  border-radius: 50px;
+  margin: 5px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.color:hover {
+  transform: scale(1.2);
 }
 
 .color.black {
@@ -37,4 +44,26 @@
 }
 .color.yellow {
   background-color: yellow;
+}
+
+.return-btn {
+  border-radius: 50px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 7px 5px 5px 5px;
+  padding: 8px;
+  background: transparent;
+  transition: transform 0.2s;
+}
+.return-btn:hover {
+  color: #01bf71;
+  transform: scale(1.5);
+}
+@media screen and (max-width: 480px) {
+  .return-btn {
+    margin: 10px 0px;
+  }
 }

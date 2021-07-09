@@ -14,7 +14,6 @@ const HomeScreen = (props) => {
     useEffect(() => {
         socket.on("errorHasUser", ({ error }) => {
             if (!error) {
-                console.log(roomNameRef.current.value, userNameRef.current.value);
                 const roomName = roomNameRef.current.value;
                 const userName = userNameRef.current.value;
 
@@ -76,12 +75,14 @@ const HomeScreen = (props) => {
                                         type="text"
                                         ref={roomNameRef}
                                         placeholder="Room name"
+                                        required
                                     />
                                     <input
                                         className="Input"
                                         type="text"
                                         ref={userNameRef}
                                         placeholder="User name"
+                                        required
                                     />
                                     <button
                                         className="Button SubmitSecondary small fontSmall"
