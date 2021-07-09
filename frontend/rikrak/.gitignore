@@ -9,3 +9,6 @@ secrets.js
 
 # build
 /build
+
+#firebase
+.firebase
