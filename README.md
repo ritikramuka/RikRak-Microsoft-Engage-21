@@ -1,12 +1,12 @@
 # RikRak-Friends
 
-RikRak is a videotelephony proprietary software program developed by Ritik Ramuka.
+RikRak is a videotelephony and Chat proprietary software program developed by Ritik Ramuka.
 
 ## Tech Stack
 
-**Client:** React, Simple-Peer, Socket.io-Client, React-Bootstrap, React-Router
+**Client:** React, Simple-Peer, Socket-io-Client, Firebase
 
-**Server:** Node, Express, Socket.io
+**Server:** Node js, Express js, Socket.io
 
 ## Script to Run Locally
 
