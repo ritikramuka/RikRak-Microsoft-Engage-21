@@ -24,8 +24,8 @@ const HeroSection = () => {
       <div className="HeroContent">
         <h1 className="HeroH1">Free browser based video calling</h1>
         <p className="HeroP">
-          Simple, Secure, and Fast. Peer to peer video calling provides quality
-          and latency simply not available with traditional technology.
+          Simple, Secure, and Fast. Simple peer video calling provides high quality
+          and low latency simply not available with traditional technology.
         </p>
         <div className="HeroBtnWrapper">
           <Link

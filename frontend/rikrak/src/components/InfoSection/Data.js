@@ -23,7 +23,7 @@ export const homeObjeTwo = {
   lightBg: true,
   lightText: false,
   topLine: "Unlimited access",
-  headline: "Video Call with your family, friendly, colleagues any time",
+  headline: "Video Call with your family, friend & colleagues any time",
   description:
     "We have you covered no matter where you are located. All you need is an internet connnection and a computer.",
   buttonLabel: "Learn more",

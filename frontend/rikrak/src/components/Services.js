@@ -21,7 +21,7 @@ const Services = () => {
           <img className="ServicesIcon" src={Icon2} alt="" />
           <h2 className="ServicesH2">Lowest Latency</h2>
           <p className="ServicesP">
-            Breakthrough peer to peer WebRTC technology means your video goes
+            Breakthrough simple peer WebRTC technology means your video goes
             directly to the other person without a server. No middleman. No
             extra stops.
           </p>
@@ -30,7 +30,7 @@ const Services = () => {
           <img className="ServicesIcon" src={Icon3} alt="" />
           <h2 className="ServicesH2">No Server Needed</h2>
           <p className="ServicesP">
-            Calls are entirely between you and your caller, decentralized from
+            Video Calls are entirely between you and your caller, decentralized from
             any server. Call data never leaves the browser. Cool right?
           </p>
         </div>
