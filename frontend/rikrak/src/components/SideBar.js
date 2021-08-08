@@ -7,7 +7,7 @@ import "./style/SideBar.css";
 const Sidebar = ({ isOpen, toggle }) => {
   return (
     <aside
-      className={`SidebarContainer ${isOpen ? "opacity100 top0" : "opacity0 top100"
+      className={`SidebarContainer ${isOpen ? "opacity100 top0" : "opacity0 topm100"
         }`}
       onClick={toggle}
     >
