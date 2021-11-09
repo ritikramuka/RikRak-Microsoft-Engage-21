@@ -30,7 +30,7 @@ Click [here](https://docs.google.com/document/d/1LNqceozYMtY4Ha5smkZBlnJI-OG_BzC
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/ritikramuka/RikRak-Microsoft-Engage-21-.git
 ```
 
 Go to the project directory
